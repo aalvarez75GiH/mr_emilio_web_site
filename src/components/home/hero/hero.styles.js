@@ -177,25 +177,6 @@ export const HeroContent = styled.div`
       font-size: ${({ theme }) => theme.fontSizes.text_16};
     }
   }
-  /* @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    align-items: flex-start;
-
-    max-width: 560px;
-
-    margin: 0 auto;
-
-    text-align: left;
-
-    h1 {
-      max-width: 560px;
-      font-size: clamp(3rem, 7.5vw, 3.8rem);
-    }
-
-    p {
-      max-width: 500px;
-      font-size: ${({ theme }) => theme.fontSizes.text_16};
-    }
-  } */
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     max-width: 100%;

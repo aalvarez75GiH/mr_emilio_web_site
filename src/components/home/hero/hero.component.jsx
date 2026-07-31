@@ -20,7 +20,13 @@ export const Hero = () => {
       <HeroContainer>
         <HeroCopyContainer>
           <HeroContent>
-            <Text as="h1" variant="heroTitle">
+            <Text
+              as="h1"
+              variant="heroTitle"
+              //   style={{
+              //     color: "#000000",
+              //   }}
+            >
               Bring Venezuelan
               <br />
               flavors home.

@@ -41,12 +41,8 @@ export const MainHeader = () => {
   return (
     <Header>
       <HeaderContainer>
-        <MobileMenuButton>
-          <FiMenu />
-        </MobileMenuButton>
-
-        <Logo as={Link} to="/">
-          <img src={logo} alt="Mr Emilio" />
+        <Logo as={Link} to="/" aria-label="Mr. Emilio home">
+          <img src={logo} alt="Mr. Emilio" />
         </Logo>
 
         <Navigation>
@@ -58,13 +54,17 @@ export const MainHeader = () => {
         </Navigation>
 
         <Actions>
-          <ActionButton>
+          <ActionButton type="button" aria-label="Account">
             <FiUser />
           </ActionButton>
 
-          <ActionButton>
+          <ActionButton type="button" aria-label="Shopping cart">
             <FiShoppingCart />
           </ActionButton>
+
+          <MobileMenuButton type="button" aria-label="Open navigation menu">
+            <FiMenu />
+          </MobileMenuButton>
         </Actions>
       </HeaderContainer>
     </Header>
