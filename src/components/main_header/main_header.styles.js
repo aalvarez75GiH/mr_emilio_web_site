@@ -93,39 +93,6 @@ export const Logo = styled.a`
     }
   }
 `;
-// export const Logo = styled.a`
-//   display: inline-flex;
-//   align-items: center;
-
-//   width: fit-content;
-
-//   img {
-//     display: block;
-
-//     width: auto;
-//     height: 58px;
-//   }
-
-//   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-//     justify-self: start;
-
-//     img {
-//       height: 56px;
-//     }
-//   }
-
-//   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-//     img {
-//       height: 54px;
-//     }
-//   }
-
-//   @media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}) {
-//     img {
-//       height: 50px;
-//     }
-//   }
-// `;
 
 export const Navigation = styled.nav`
   display: flex;

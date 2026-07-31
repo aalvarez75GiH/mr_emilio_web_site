@@ -4,6 +4,10 @@ import { BrandBenefits } from "../../components/home/brand_benefits/brand_benefi
 import { ShopByProduct } from "../../components/home/shop_by_product/shop_by_product.component";
 import { BrandStory } from "../../components/home/brand_story/brand_story.component";
 import { WhyFamiliesChooseUs } from "../../components/home/why_families_choose_us/why_families_choose_us.component";
+import { FeaturedRecipes } from "../../components/home/featured_recipes/featured_recipes.component";
+import { CommunitySocial } from "../../components/home/community_social/community_social.component";
+import { NewsletterBanner } from "../../components/home/newsletter_banner/newsletter_banner.component";
+
 export const HomeScreen = () => {
   return (
     <>
@@ -13,6 +17,9 @@ export const HomeScreen = () => {
       <ShopByProduct />
       <BrandStory />
       <WhyFamiliesChooseUs />
+      <FeaturedRecipes />
+      <CommunitySocial />
+      <NewsletterBanner />
     </>
   );
 };

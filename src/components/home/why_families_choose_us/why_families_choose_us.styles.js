@@ -71,50 +71,6 @@ export const WhyChooseContainer = styled.div`
     border-radius: 16px;
   }
 `;
-// export const WhyChooseContainer = styled.div`
-//   width: 100%;
-
-//   padding: 30px 48px 34px;
-
-//   border-radius: 20px;
-
-//   /* background: linear-gradient(
-//     90deg,
-//     ${({ theme }) => theme.colors.background.softBlue} 0%,
-//     ${({ theme }) => theme.colors.background.primary} 50%,
-//     ${({ theme }) => theme.colors.background.softBlue} 100%
-//   ); */
-
-//   @media (min-width: ${({ theme }) => theme.breakpoints.wide}) {
-//     padding: 34px 64px 38px;
-
-//     border-radius: 22px;
-//   }
-
-//   @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
-//     padding: 28px 40px 32px;
-//   }
-
-//   @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
-//     padding: 26px 32px 30px;
-//   }
-
-//   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-//     padding: 28px 24px 30px;
-//   }
-
-//   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-//     padding: 26px 20px 28px;
-
-//     border-radius: 18px;
-//   }
-
-//   @media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}) {
-//     padding: 24px 16px 26px;
-
-//     border-radius: 16px;
-//   }
-// `;
 
 export const WhyChooseTitle = styled.h2`
   margin: 0 0 28px;
