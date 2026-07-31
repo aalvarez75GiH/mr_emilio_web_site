@@ -11,28 +11,33 @@ export const HeroSection = styled(Section)`
 
 export const HeroContainer = styled.div`
   display: grid;
-  grid-template-columns: minmax(520px, 42%) minmax(0, 58%);
+  grid-template-columns: minmax(620px, 47%) minmax(0, 53%);
 
   width: 100%;
   min-height: 610px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.wide}) {
-    grid-template-columns: minmax(600px, 42%) minmax(0, 58%);
+    grid-template-columns: minmax(760px, 48%) minmax(0, 52%);
 
     min-height: 650px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
-    grid-template-columns: minmax(480px, 43%) minmax(0, 57%);
+    grid-template-columns: minmax(540px, 46%) minmax(0, 54%);
 
     min-height: 570px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
-    grid-template-columns: minmax(400px, 42%) minmax(0, 58%);
+    grid-template-columns: minmax(460px, 46%) minmax(0, 54%);
+
+    min-height: 540px;
+  }
+  /* @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    grid-template-columns: minmax(400px, 43%) minmax(0, 57%);
 
     min-height: 520px;
-  }
+  } */
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
@@ -45,10 +50,10 @@ export const HeroCopyContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border: 2px solid green; */
+
   min-width: 0;
 
-  padding: 56px 48px 56px 64px;
+  padding: 56px 44px 56px 64px;
 
   background: ${({ theme }) => theme.colors.background.primary};
 
@@ -57,21 +62,21 @@ export const HeroCopyContainer = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
-    padding: 48px 40px 48px 48px;
+    padding: 48px 36px 48px 48px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
-    padding: 40px 32px;
+    padding: 44px 24px 44px 32px;
   }
+  /* @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    padding: 40px 32px;
+  } */
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     justify-content: flex-start;
 
     padding: 48px 48px 32px;
   }
-  /* @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    padding: 48px 24px 32px;
-  } */
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
     justify-content: flex-start;
@@ -90,24 +95,29 @@ export const HeroContent = styled.div`
   align-items: flex-start;
 
   width: 100%;
-  max-width: 590px;
-  gap: 22px;
+  max-width: 720px;
 
   h1 {
+    display: flex;
+    flex-direction: column;
+
     width: 100%;
-    max-width: 590px;
+    max-width: 720px;
+
+    margin: 0;
 
     color: ${({ theme }) => theme.colors.brand.primary};
 
-    font-size: clamp(3.6rem, 4.4vw, 4.8rem);
-    font-weight: ${({ theme }) => theme.fontWeights.bold};
-    line-height: 0.98;
-    letter-spacing: -0.045em;
+    font-size: clamp(4.2rem, 4.8vw, 5.5rem);
+    line-height: 0.88;
+    letter-spacing: -0.055em;
   }
 
   p {
     width: 100%;
     max-width: 440px;
+
+    margin-top: 38px;
 
     color: ${({ theme }) => theme.colors.text.primary};
 
@@ -116,64 +126,99 @@ export const HeroContent = styled.div`
   }
 
   @media (min-width: ${({ theme }) => theme.breakpoints.wide}) {
-    max-width: 650px;
+    max-width: 720px;
 
     h1 {
-      max-width: 650px;
-      font-size: 5rem;
+      max-width: 720px;
+
+      font-size: clamp(4.35rem, 4.6vw, 5rem);
+      line-height: 0.9;
     }
 
     p {
       max-width: 470px;
+
+      margin-top: 38px;
+
       font-size: ${({ theme }) => theme.fontSizes.text_18};
     }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
-    max-width: 520px;
+    max-width: 590px;
 
     h1 {
-      max-width: 520px;
-      font-size: clamp(3.2rem, 4.2vw, 4.1rem);
+      max-width: 590px;
+      font-size: clamp(3.7rem, 4.5vw, 4.35rem);
+      line-height: 0.9;
     }
 
     p {
       max-width: 400px;
+
+      margin-top: 32px;
     }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    max-width: 430px;
+
+    h1 {
+      max-width: 430px;
+
+      font-size: clamp(3.25rem, 5.4vw, 3.75rem);
+      line-height: 0.9;
+      letter-spacing: -0.055em;
+    }
+
+    p {
+      max-width: 360px;
+
+      margin-top: 30px;
+
+      font-size: ${({ theme }) => theme.fontSizes.text_14};
+      line-height: 1.65;
+    }
+  }
+  /* @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
     max-width: 380px;
-    gap: 18px;
 
     h1 {
       max-width: 380px;
       font-size: clamp(2.7rem, 4.2vw, 3.3rem);
+      line-height: 0.94;
     }
 
     p {
       max-width: 340px;
+
+      margin-top: 26px;
+
       font-size: ${({ theme }) => theme.fontSizes.text_14};
     }
-  }
+  } */
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     align-items: flex-start;
 
     width: 100%;
-    max-width: 560px;
+    max-width: 620px;
 
     margin: 0;
 
     text-align: left;
 
     h1 {
-      max-width: 560px;
-      font-size: clamp(3rem, 7.5vw, 3.8rem);
+      max-width: 620px;
+      font-size: clamp(3.2rem, 8vw, 4.3rem);
+      line-height: 0.92;
     }
 
     p {
       max-width: 500px;
+
+      margin-top: 30px;
+
       font-size: ${({ theme }) => theme.fontSizes.text_16};
     }
   }
@@ -182,29 +227,62 @@ export const HeroContent = styled.div`
     max-width: 100%;
 
     h1 {
-      max-width: 420px;
-      font-size: clamp(2.65rem, 10vw, 3.2rem);
-      line-height: 1;
+      max-width: 440px;
+      font-size: clamp(2.8rem, 11vw, 3.5rem);
+      line-height: 0.94;
     }
 
     p {
       max-width: 370px;
+
+      margin-top: 26px;
+
       font-size: ${({ theme }) => theme.fontSizes.text_14};
     }
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}) {
-    gap: 16px;
-
     h1 {
       max-width: 340px;
-      font-size: clamp(2.2rem, 10vw, 2.6rem);
+      font-size: clamp(2.35rem, 10.5vw, 2.8rem);
+      line-height: 0.96;
     }
 
     p {
       max-width: 320px;
+
+      margin-top: 22px;
     }
   }
+`;
+
+export const HeroTitlePrimary = styled.span`
+  display: block;
+
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  white-space: nowrap;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    white-space: normal;
+  }
+`;
+// export const HeroTitlePrimary = styled.span`
+//   display: block;
+
+//   font-weight: ${({ theme }) => theme.fontWeights.bold};
+
+//   @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
+//     white-space: nowrap;
+//   }
+// `;
+
+export const HeroTitleSecondary = styled.span`
+  display: block;
+
+  font-weight: ${({ theme }) =>
+    theme.fontWeights.regular || theme.fontWeights.normal || 400};
+
+  letter-spacing: -0.06em;
 `;
 
 export const HeroActions = styled.div`
@@ -213,7 +291,19 @@ export const HeroActions = styled.div`
 
   width: 100%;
 
-  margin-top: 8px;
+  margin-top: 26px;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.wide}) {
+    margin-top: 30px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    margin-top: 22px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}) {
+    margin-top: 18px;
+  }
 `;
 
 export const HeroProductsContainer = styled.div`

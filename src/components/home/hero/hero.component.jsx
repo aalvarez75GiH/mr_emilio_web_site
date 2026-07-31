@@ -9,6 +9,8 @@ import {
   HeroContainer,
   HeroCopyContainer,
   HeroContent,
+  HeroTitlePrimary,
+  HeroTitleSecondary,
   HeroActions,
   HeroProductsContainer,
   HeroProductsImage,
@@ -20,16 +22,10 @@ export const Hero = () => {
       <HeroContainer>
         <HeroCopyContainer>
           <HeroContent>
-            <Text
-              as="h1"
-              variant="heroTitle"
-              //   style={{
-              //     color: "#000000",
-              //   }}
-            >
-              Bring Venezuelan
-              <br />
-              flavors home.
+            <Text as="h1" variant="heroTitle">
+              <HeroTitlePrimary>Bring Venezuelan</HeroTitlePrimary>
+
+              <HeroTitleSecondary>flavors home.</HeroTitleSecondary>
             </Text>
 
             <Text as="p" variant="body">
