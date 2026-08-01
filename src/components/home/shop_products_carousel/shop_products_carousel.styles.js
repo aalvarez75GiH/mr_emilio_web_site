@@ -239,7 +239,9 @@ export const ProductCard = styled.article`
   scroll-snap-align: start;
   scroll-snap-stop: always;
 
-  border: 1px solid ${({ theme }) => theme.colors.border.light};
+  /* border: 1px solid ${({ theme }) => theme.colors.border.light}; */
+  border: 1px solid rgba(22, 70, 172, 0.14);
+  /* border: 3px solid ${({ theme }) => theme.colors.text.brand}; */
   border-radius: 16px;
 
   background: ${({ theme }) => theme.colors.background.primary};
@@ -247,14 +249,16 @@ export const ProductCard = styled.article`
   transition: transform 180ms ease, box-shadow 180ms ease,
     border-color 180ms ease;
 
+  /* box-shadow: 0 0 0 1px rgba(22, 70, 172, 0.08),
+    0 18px 36px rgba(20, 32, 60, 0.06); */
+
   &:hover {
-    transform: translateY(-3px);
+    border-color: rgba(22, 70, 172, 0.34);
 
-    border-color: rgba(22, 70, 172, 0.3);
+    transform: translateY(-6px);
 
-    box-shadow: 0 14px 30px rgba(19, 41, 83, 0.09);
+    box-shadow: 0 20px 44px rgba(22, 70, 172, 0.12);
   }
-
   @media (min-width: ${({ theme }) => theme.breakpoints.wide}) {
     flex-basis: clamp(240px, 14.5vw, 290px);
   }
@@ -268,6 +272,8 @@ export const ProductCard = styled.article`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    box-shadow: 0 0 0 1px rgba(22, 70, 172, 0.08),
+      0 18px 36px rgba(20, 32, 60, 0.06);
     flex-basis: clamp(220px, 43vw, 280px);
   }
 
@@ -319,6 +325,26 @@ export const ProductImageContainer = styled.div`
 
   background: ${({ theme }) => theme.colors.background.primary};
 
+  &::before {
+    content: "";
+
+    position: absolute;
+
+    width: 72%;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+      circle,
+      rgba(22, 70, 172, 0.07) 0%,
+      rgba(22, 70, 172, 0.025) 56%,
+      rgba(22, 70, 172, 0) 74%
+    );
+
+    pointer-events: none;
+  }
+
   @media (min-width: ${({ theme }) => theme.breakpoints.wide}) {
     height: 230px;
 
@@ -340,15 +366,15 @@ export const ProductImageContainer = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    height: 360px;
+    height: 330px;
 
-    padding: 34px 28px 26px;
+    padding: 34px 28px 18px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}) {
-    height: 310px;
+    height: 290px;
 
-    padding: 30px 22px 22px;
+    padding: 30px 22px 16px;
   }
 `;
 export const ProductImage = styled.img`
@@ -356,6 +382,9 @@ export const ProductImage = styled.img`
 
   width: 100%;
   height: 100%;
+
+  position: relative;
+  z-index: 1;
 
   object-fit: contain;
   object-position: center;
@@ -381,6 +410,80 @@ export const ProductImage = styled.img`
   }
 `;
 
+export const ProductQuantityBadge = styled.span`
+  position: absolute;
+  z-index: 2;
+
+  right: 16px;
+  bottom: 14px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 58px;
+  height: 58px;
+
+  padding: 8px;
+
+  border: 4px solid ${({ theme }) => theme.colors.background.primary};
+  border-radius: 50%;
+
+  background: ${({ theme }) => theme.colors.brand.primary};
+  color: #ffffff;
+
+  text-align: center;
+
+  box-shadow: 0 8px 20px rgba(22, 70, 172, 0.2);
+
+  strong {
+    font-size: 0.74rem;
+    font-weight: ${({ theme }) => theme.fontWeights.bold};
+    line-height: 1.05;
+    text-transform: uppercase;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.wide}) {
+    width: 62px;
+    height: 62px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    width: 54px;
+    height: 54px;
+
+    right: 12px;
+    bottom: 12px;
+
+    strong {
+      font-size: 0.68rem;
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    width: 68px;
+    height: 68px;
+
+    right: 22px;
+    bottom: 12px;
+
+    strong {
+      font-size: 0.82rem;
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}) {
+    width: 60px;
+    height: 60px;
+
+    right: 16px;
+
+    strong {
+      font-size: 0.74rem;
+    }
+  }
+`;
+
 export const ProductInformation = styled.div`
   width: 100%;
 
@@ -397,11 +500,11 @@ export const ProductInformation = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    padding: 20px 16px;
+    padding: 14px 16px 20px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}) {
-    padding: 18px 14px;
+    padding: 12px 14px 18px;
   }
 `;
 
@@ -457,6 +560,72 @@ export const ProductBadge = styled.span`
     left: 14px;
   }
 `;
+
+// export const ProductFavoriteButton = styled.button`
+//   position: absolute;
+//   z-index: 3;
+
+//   top: 14px;
+//   right: 14px;
+
+//   display: inline-flex;
+//   align-items: center;
+//   justify-content: center;
+
+//   width: 40px;
+//   height: 40px;
+
+//   padding: 0;
+
+//   border: 1px solid
+//     ${({ theme, $favorite }) =>
+//       $favorite ? theme.colors.brand.primary : theme.colors.border.light};
+
+//   border-radius: 50%;
+
+//   background: ${({ theme }) => theme.colors.background.primary};
+
+//   cursor: pointer;
+
+//   transition: border-color 180ms ease, background 180ms ease,
+//     transform 180ms ease, opacity 180ms ease;
+
+//   svg {
+//     display: block;
+//   }
+
+//   &:hover:not(:disabled) {
+//     border-color: ${({ theme }) => theme.colors.brand.primary};
+
+//     transform: scale(1.05);
+//   }
+
+//   &:disabled {
+//     opacity: 0.55;
+//     cursor: wait;
+//   }
+
+//   &:focus-visible {
+//     outline: 3px solid rgba(22, 70, 172, 0.22);
+//     outline-offset: 3px;
+//   }
+
+//   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+//     top: 16px;
+//     right: 16px;
+
+//     width: 44px;
+//     height: 44px;
+//   }
+
+//   @media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}) {
+//     top: 12px;
+//     right: 12px;
+
+//     width: 42px;
+//     height: 42px;
+//   }
+// `;
 export const ProductFavoriteButton = styled.button`
   position: absolute;
   z-index: 3;
@@ -548,7 +717,7 @@ export const ProductName = styled.h3`
 export const ProductDescription = styled.p`
   width: 100%;
 
-  margin: 0 0 14px;
+  margin: 0 0 12px;
 
   overflow: hidden;
 
@@ -562,59 +731,211 @@ export const ProductDescription = styled.p`
   text-overflow: ellipsis;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin-bottom: 14px;
+
+    font-size: ${({ theme }) => theme.fontSizes.text_16};
+
     white-space: normal;
   }
 `;
 
-export const ProductDetailsPanel = styled.div`
+export const ProductBenefits = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  width: 100%;
+
+  margin: 2px 0 14px;
+  padding: 12px 0;
+
+  border-top: 1px solid ${({ theme }) => theme.colors.border.light};
+  border-bottom: 1px solid ${({ theme }) => theme.colors.border.light};
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    padding: 10px 0;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    margin-bottom: 16px;
+    padding: 14px 0;
+  }
+`;
+
+export const ProductBenefitItem = styled.div`
   display: flex;
+  align-items: center;
   flex-direction: column;
-  gap: 9px;
+  gap: 6px;
+
+  min-width: 0;
+  padding: 0 8px;
+
+  text-align: center;
+
+  &:not(:last-child) {
+    border-right: 1px solid ${({ theme }) => theme.colors.border.light};
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    padding: 0 5px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    gap: 8px;
+    padding: 0 10px;
+  }
+`;
+
+export const ProductBenefitIcon = styled.span`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: ${({ theme }) => theme.colors.brand.primary};
+
+  svg {
+    display: block;
+  }
+`;
+
+export const ProductBenefitLabel = styled.span`
+  color: ${({ theme }) => theme.colors.text.secondary};
+
+  font-size: 0.64rem;
+  font-weight: ${({ theme }) => theme.fontWeights.medium};
+  line-height: 1.2;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 0.76rem;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}) {
+    font-size: 0.68rem;
+  }
+`;
+
+export const ProductDetailsPanel = styled.div`
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
+  align-items: stretch;
 
   width: 100%;
 
   margin-bottom: 13px;
-  padding: 11px 12px;
+  padding: 12px 14px;
 
   border-radius: 10px;
 
   background: rgba(22, 70, 172, 0.055);
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    gap: 10px;
+  @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    padding: 11px 12px;
+  }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 14px 16px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}) {
     padding: 12px 13px;
   }
 `;
 
-export const ProductAttributeRow = styled.div`
-  display: grid;
-  grid-template-columns: 78px auto;
-  align-items: center;
-  column-gap: 10px;
+export const ProductDetailColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 7px;
+
+  min-width: 0;
+
+  &:first-child {
+    padding-right: 14px;
+  }
+
+  &:last-child {
+    padding-left: 14px;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    &:first-child {
+      padding-right: 10px;
+    }
+
+    &:last-child {
+      padding-left: 10px;
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    &:first-child {
+      padding-right: 16px;
+    }
+
+    &:last-child {
+      padding-left: 16px;
+    }
+  }
 `;
 
-export const ProductAttributeLabel = styled.div`
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
+export const ProductDetailDivider = styled.span`
+  display: block;
 
-  flex-shrink: 0;
+  width: 1px;
+  height: 100%;
+  min-height: 42px;
 
+  background: ${({ theme }) => theme.colors.border.light};
+`;
+
+export const ProductDetailHeading = styled.span`
   color: ${({ theme }) => theme.colors.text.secondary};
 
-  font-size: 0.82rem;
+  font-size: 0.72rem;
   font-weight: ${({ theme }) => theme.fontWeights.medium};
-  line-height: 1.25;
+  line-height: 1.2;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 0.82rem;
+  }
 `;
 
-export const ProductAttributeValue = styled.span`
+export const ProductDetailValue = styled.span`
+  min-width: 0;
+
+  color: ${({ theme }) => theme.colors.brand.primary};
+
+  font-size: 0.82rem;
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  line-height: 1.2;
+
+  white-space: nowrap;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 0.94rem;
+  }
+`;
+
+export const ProductAvailabilityValue = styled.span`
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  min-width: 0;
+
   color: ${({ theme, $soldOut }) =>
     $soldOut ? theme.colors.text.secondary : theme.colors.brand.primary};
 
   font-size: 0.82rem;
   font-weight: ${({ theme }) => theme.fontWeights.bold};
-  line-height: 1.25;
+  line-height: 1.2;
+
+  white-space: nowrap;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 0.94rem;
+  }
 `;
 
 export const ProductStockDot = styled.span`
@@ -648,23 +969,6 @@ export const ProductAttributes = styled.div`
   width: 100%;
 
   margin-bottom: 10px;
-`;
-
-export const ProductSize = styled.p`
-  width: 100%;
-
-  margin: 0;
-
-  color: ${({ theme }) => theme.colors.text.primary};
-
-  font-size: 0.78rem;
-  font-weight: ${({ theme }) => theme.fontWeights.semiBold};
-  line-height: 1.25;
-  text-align: left;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    font-size: 0.84rem;
-  }
 `;
 
 export const ProductRatingContainer = styled.div`
@@ -712,7 +1016,7 @@ export const ProductPurchaseRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 10px;
 
   width: 100%;
 
@@ -739,26 +1043,29 @@ export const AddToCartButton = styled.button`
   flex: 0 0 auto;
   align-items: center;
   justify-content: center;
+  gap: 8px;
 
-  width: 44px;
-  height: 44px;
+  min-width: 116px;
+  min-height: 44px;
 
-  padding: 0;
+  padding: 0 14px;
 
   border: none;
-  border-radius: 50%;
+  border-radius: 999px;
 
   background: ${({ theme }) => theme.colors.brand.primary};
   color: #ffffff;
 
   cursor: pointer;
 
-  transition: opacity 180ms ease, transform 180ms ease;
+  transition: opacity 180ms ease, transform 180ms ease, box-shadow 180ms ease;
 
   &:hover:not(:disabled) {
-    opacity: 0.88;
+    opacity: 0.92;
 
     transform: translateY(-2px);
+
+    box-shadow: 0 8px 18px rgba(22, 70, 172, 0.2);
   }
 
   &:disabled {
@@ -771,14 +1078,39 @@ export const AddToCartButton = styled.button`
     outline-offset: 3px;
   }
 
+  @media (max-width: ${({ theme }) => theme.breakpoints.laptop}) {
+    min-width: 104px;
+
+    padding: 0 11px;
+  }
+
   @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    width: 48px;
-    height: 48px;
+    min-width: 138px;
+    min-height: 50px;
+
+    padding: 0 18px;
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}) {
-    width: 44px;
-    height: 44px;
+    min-width: 124px;
+    min-height: 46px;
+
+    padding: 0 14px;
+  }
+`;
+
+export const AddToCartLabel = styled.span`
+  font-size: 0.76rem;
+  font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+  line-height: 1;
+  white-space: nowrap;
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    font-size: 0.88rem;
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobileSmall}) {
+    font-size: 0.8rem;
   }
 `;
 

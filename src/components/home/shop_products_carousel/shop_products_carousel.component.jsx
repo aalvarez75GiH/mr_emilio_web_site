@@ -23,9 +23,6 @@ import {
   ProductName,
   ProductDescription,
   ProductDetailsPanel,
-  ProductAttributeRow,
-  ProductAttributeLabel,
-  ProductAttributeValue,
   ProductStockDot,
   ProductRatingContainer,
   ProductStars,
@@ -38,6 +35,17 @@ import {
   CarouselArrow,
   CarouselDots,
   CarouselDot,
+  ProductQuantityBadge,
+  ProductBenefits,
+  ProductBenefitItem,
+  ProductBenefitIcon,
+  ProductBenefitLabel,
+  AddToCartLabel,
+  ProductDetailColumn,
+  ProductDetailHeading,
+  ProductDetailValue,
+  ProductAvailabilityValue,
+  ProductDetailDivider,
 } from "./shop_products_carousel.styles";
 
 const ArrowIcon = ({ direction = "right" }) => {
@@ -97,7 +105,136 @@ const CartIcon = () => {
     </svg>
   );
 };
+const BenefitIcon = ({ type }) => {
+  if (type === "snowflake") {
+    return (
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M12 2V22M4.2 6.5L19.8 17.5M4.2 17.5L19.8 6.5M8.5 4L12 7.5L15.5 4M8.5 20L12 16.5L15.5 20M3.5 10L8 12L3.5 14M20.5 10L16 12L20.5 14"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
 
+  if (type === "clock") {
+    return (
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+        <circle
+          cx="12"
+          cy="12"
+          r="8.5"
+          stroke="currentColor"
+          strokeWidth="1.6"
+        />
+
+        <path
+          d="M12 7.5V12L15.2 14"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+
+  if (type === "heart") {
+    return (
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+        <defs>
+          <linearGradient
+            id="venezuela-heart-gradient"
+            x1="12"
+            y1="3"
+            x2="12"
+            y2="21"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset="0%" stopColor="#F4D000" />
+            <stop offset="33.33%" stopColor="#F4D000" />
+
+            <stop offset="33.34%" stopColor="#1646AC" />
+            <stop offset="66.66%" stopColor="#1646AC" />
+
+            <stop offset="66.67%" stopColor="#CF142B" />
+            <stop offset="100%" stopColor="#CF142B" />
+          </linearGradient>
+        </defs>
+
+        <path
+          d="M20.8 4.8C18.7 2.7 15.3 2.7 13.2 4.8L12 6L10.8 4.8C8.7 2.7 5.3 2.7 3.2 4.8C1.1 6.9 1.1 10.3 3.2 12.4L12 21L20.8 12.4C22.9 10.3 22.9 6.9 20.8 4.8Z"
+          fill="url(#venezuela-heart-gradient)"
+        />
+      </svg>
+    );
+  }
+
+  if (type === "scale") {
+    return (
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="M12 4V19M7 20H17M5 7H19M7 7L4 13H10L7 7ZM17 7L14 13H20L17 7Z"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    );
+  }
+
+  return (
+    <svg
+      width="22"
+      height="22"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M5 7.5L12 4L19 7.5V16.5L12 20L5 16.5V7.5Z"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+
+      <path
+        d="M5 7.5L12 11L19 7.5M12 11V20"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
 const HeartIcon = ({ filled = false }) => {
   return (
     <svg
@@ -108,7 +245,7 @@ const HeartIcon = ({ filled = false }) => {
       aria-hidden="true"
     >
       <path
-        d="M20.84 4.61C20.33 4.1 19.72 3.69 19.05 3.42C18.38 3.14 17.66 3 16.94 3C16.21 3 15.49 3.14 14.82 3.42C14.15 3.69 13.54 4.1 13.03 4.61L12 5.64L10.97 4.61C9.94 3.58 8.54 3 7.06 3C5.59 3 4.18 3.58 3.15 4.61C2.12 5.64 1.54 7.04 1.54 8.52C1.54 10 2.12 11.4 3.15 12.43L12 21.28L20.84 12.43C21.36 11.92 21.76 11.31 22.04 10.64C22.32 9.97 22.46 9.25 22.46 8.52C22.46 7.8 22.32 7.08 22.04 6.41C21.76 5.74 21.36 5.13 20.84 4.61Z"
+        d="M20.8 4.8C18.7 2.7 15.3 2.7 13.2 4.8L12 6L10.8 4.8C8.7 2.7 5.3 2.7 3.2 4.8C1.1 6.9 1.1 10.3 3.2 12.4L12 21L20.8 12.4C22.9 10.3 22.9 6.9 20.8 4.8Z"
         stroke="currentColor"
         strokeWidth="1.7"
         strokeLinecap="round"
@@ -160,18 +297,17 @@ const ProductRating = ({ review }) => {
     </ProductRatingContainer>
   );
 };
-
 const getStockLabel = (product) => {
   if (product.stock <= 0) {
     return "Sold out";
   }
 
-  if (product.stockUnit === "ct") {
+  if (product.stockUnit === "count" || product.stockUnit === "ct") {
     return `${product.stock} count`;
   }
 
   if (product.stock === 1) {
-    return "1 unit available";
+    return "1 unit";
   }
 
   return `${product.stock} units`;
@@ -491,11 +627,11 @@ export const ShopProductsCarousel = ({
                         $imageOffsetX={product.imageOffsetX}
                         $imageOffsetY={product.imageOffsetY}
                       />
-                      {/* <ProductImage
-                        src={product.image}
-                        alt={product.alt}
-                        loading="lazy"
-                      /> */}
+                      {product.quantityHighlight && (
+                        <ProductQuantityBadge>
+                          <strong>{product.quantityHighlight}</strong>
+                        </ProductQuantityBadge>
+                      )}
                     </ProductImageContainer>
                     <ProductInformation>
                       <ProductTextContent>
@@ -505,21 +641,41 @@ export const ShopProductsCarousel = ({
                           {product.description}
                         </ProductDescription>
 
+                        {product.benefits?.length > 0 && (
+                          <ProductBenefits>
+                            {product.benefits.map((benefit) => (
+                              <ProductBenefitItem key={benefit.id}>
+                                <ProductBenefitIcon $type={benefit.icon}>
+                                  <BenefitIcon type={benefit.icon} />
+                                </ProductBenefitIcon>
+
+                                <ProductBenefitLabel>
+                                  {benefit.label}
+                                </ProductBenefitLabel>
+                              </ProductBenefitItem>
+                            ))}
+                          </ProductBenefits>
+                        )}
+
                         <ProductDetailsPanel>
-                          {product.size && (
-                            <ProductAttributeRow>
-                              <ProductAttributeLabel>
-                                Size
-                              </ProductAttributeLabel>
+                          <ProductDetailColumn>
+                            <ProductDetailHeading>Size</ProductDetailHeading>
 
-                              <ProductAttributeValue>
-                                {product.size}
-                              </ProductAttributeValue>
-                            </ProductAttributeRow>
-                          )}
+                            <ProductDetailValue>
+                              {product.size || "—"}
+                            </ProductDetailValue>
+                          </ProductDetailColumn>
 
-                          <ProductAttributeRow>
-                            <ProductAttributeLabel>
+                          <ProductDetailDivider aria-hidden="true" />
+
+                          <ProductDetailColumn>
+                            <ProductDetailHeading>
+                              {product.stock <= 0 ? "Availability" : "In stock"}
+                            </ProductDetailHeading>
+
+                            <ProductAvailabilityValue
+                              $soldOut={product.stock <= 0}
+                            >
                               <ProductStockDot
                                 $status={
                                   product.stock <= 0
@@ -530,15 +686,9 @@ export const ShopProductsCarousel = ({
                                 }
                               />
 
-                              {product.stock <= 0 ? "Currently" : "In stock"}
-                            </ProductAttributeLabel>
-
-                            <ProductAttributeValue
-                              $soldOut={product.stock <= 0}
-                            >
                               {getStockLabel(product)}
-                            </ProductAttributeValue>
-                          </ProductAttributeRow>
+                            </ProductAvailabilityValue>
+                          </ProductDetailColumn>
                         </ProductDetailsPanel>
 
                         <ProductRating review={product.review} />
@@ -557,6 +707,10 @@ export const ShopProductsCarousel = ({
                             onClick={(event) => handleAddToCart(event, product)}
                           >
                             <CartIcon />
+
+                            <AddToCartLabel>
+                              {product.stock > 0 ? "Add to cart" : "Sold out"}
+                            </AddToCartLabel>
                           </AddToCartButton>
                         </ProductPurchaseRow>
                       </ProductTextContent>

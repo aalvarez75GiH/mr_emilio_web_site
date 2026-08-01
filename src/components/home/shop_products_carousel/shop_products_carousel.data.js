@@ -10,11 +10,11 @@ import bigQuesoBlancoImage from "../../../assets/shop_products_carousel/big_whit
 export const shopProductsCarouselData = [
   {
     id: "tequenos",
-    name: "Tequeños",
+    name: "Tequeños venezolanos",
     description: "Precooked Cheese Sticks",
     size: "20 units",
 
-    stock: 20,
+    stock: 10,
     stockUnit: "count",
 
     price: 12.99,
@@ -35,6 +35,26 @@ export const shopProductsCarouselData = [
     },
 
     badge: "Best Seller",
+
+    quantityHighlight: "20 units",
+
+    benefits: [
+      {
+        id: "storage",
+        label: "Keep Frozen",
+        icon: "snowflake",
+      },
+      {
+        id: "preparation",
+        label: "Ready to Cook",
+        icon: "clock",
+      },
+      {
+        id: "quantity",
+        label: "20 Pieces",
+        icon: "package",
+      },
+    ],
   },
   {
     id: "suero-llanero",
@@ -63,6 +83,26 @@ export const shopProductsCarouselData = [
     },
 
     badge: "Best Seller",
+
+    quantityHighlight: "28 oz",
+
+    benefits: [
+      {
+        id: "storage",
+        label: "Keep Refrigerated",
+        icon: "snowflake",
+      },
+      {
+        id: "style",
+        label: "Venezuelan Style",
+        icon: "heart",
+      },
+      {
+        id: "serving",
+        label: "Ready to Serve",
+        icon: "clock",
+      },
+    ],
   },
   {
     id: "queso-blanco",
@@ -91,6 +131,26 @@ export const shopProductsCarouselData = [
     },
 
     badge: "Best Seller",
+
+    quantityHighlight: "1.5 lb",
+
+    benefits: [
+      {
+        id: "storage",
+        label: "Keep Refrigerated",
+        icon: "snowflake",
+      },
+      {
+        id: "weight",
+        label: "Sell by Weight",
+        icon: "scale",
+      },
+      {
+        id: "style",
+        label: "Venezuelan Style",
+        icon: "heart",
+      },
+    ],
   },
   {
     id: "big-queso-blanco",
@@ -119,6 +179,26 @@ export const shopProductsCarouselData = [
     },
 
     badge: "Family Favorite",
+
+    quantityHighlight: "6 lb",
+
+    benefits: [
+      {
+        id: "storage",
+        label: "Keep Refrigerated",
+        icon: "snowflake",
+      },
+      {
+        id: "weight",
+        label: "Sell by Weight",
+        icon: "scale",
+      },
+      {
+        id: "style",
+        label: "Venezuelan Style",
+        icon: "heart",
+      },
+    ],
   },
   {
     id: "queso-gouda",
@@ -147,6 +227,26 @@ export const shopProductsCarouselData = [
     },
 
     badge: "Family Favorite",
+
+    quantityHighlight: "1.5 lb",
+
+    benefits: [
+      {
+        id: "storage",
+        label: "Keep Refrigerated",
+        icon: "snowflake",
+      },
+      {
+        id: "weight",
+        label: "Sell by Weight",
+        icon: "scale",
+      },
+      {
+        id: "style",
+        label: "Venezuelan Style",
+        icon: "heart",
+      },
+    ],
   },
   {
     id: "big-queso-gouda",
@@ -175,6 +275,26 @@ export const shopProductsCarouselData = [
     },
 
     badge: "Best Seller",
+
+    quantityHighlight: "6 lb",
+
+    benefits: [
+      {
+        id: "storage",
+        label: "Keep Refrigerated",
+        icon: "snowflake",
+      },
+      {
+        id: "weight",
+        label: "Sell by Weight",
+        icon: "scale",
+      },
+      {
+        id: "style",
+        label: "Venezuelan Style",
+        icon: "heart",
+      },
+    ],
   },
   {
     id: "arequipe",
@@ -203,6 +323,25 @@ export const shopProductsCarouselData = [
     },
 
     badge: "Limited",
+    quantityHighlight: "15 oz",
+
+    benefits: [
+      {
+        id: "serving",
+        label: "Ready to Serve",
+        icon: "clock",
+      },
+      {
+        id: "type",
+        label: "Caramel Spread",
+        icon: "package",
+      },
+      {
+        id: "style",
+        label: "Venezuelan Favorite",
+        icon: "heart",
+      },
+    ],
   },
 
   {
@@ -232,5 +371,25 @@ export const shopProductsCarouselData = [
     },
 
     badge: "Limited",
+
+    quantityHighlight: "8.5 oz",
+
+    benefits: [
+      {
+        id: "storage",
+        label: "Keep Refrigerated",
+        icon: "snowflake",
+      },
+      {
+        id: "style",
+        label: "Venezuelan Style",
+        icon: "heart",
+      },
+      {
+        id: "serving",
+        label: "Ready to Serve",
+        icon: "clock",
+      },
+    ],
   },
 ];
